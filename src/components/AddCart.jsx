@@ -4,13 +4,14 @@ import { Box, Typography } from "@mui/material";
 import Thumbnail from "../assets/image-product-1-thumbnail.jpg";
 import Delete from "../assets/icon-delete.svg";
 
-const AddCart = ({ count }) => {
+const AddCart = ({ count, onRemove }) => {
    return (
       <Box
          p="25px"
          display="flex"
          alignItems="center"
          justifyContent="space-between"
+         gap="10px"
       >
          <img src={Thumbnail} alt="img1" className="thumbnail" />
          <div>
@@ -41,7 +42,9 @@ const AddCart = ({ count }) => {
             src={Delete}
             alt="delete"
             style={{ cursor: "pointer" }}
-            onClick={() => {}}
+            onClick={() => {
+               onRemove();
+            }}
          />
       </Box>
    );

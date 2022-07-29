@@ -25,9 +25,10 @@ const App = () => {
    };
 
    return (
-      <div onClick={() => {}}>
+      <div className={`${showLightBox === true ? "noscroll" : ""}`}>
          <Navbar
             count={count}
+            setCount={setCount}
             cartItems={cartItems}
             setCartItems={setCartItems}
          />

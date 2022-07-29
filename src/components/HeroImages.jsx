@@ -9,12 +9,7 @@ import Img4 from "../assets/image-product-4.jpg";
 import Prev from "../assets/icon-previous.svg";
 import Next from "../assets/icon-next.svg";
 
-const HeroImages = ({
-   showBigImg,
-   setShowBigImg,
-   showLightBox,
-   setShowLightBox,
-}) => {
+const HeroImages = ({ showBigImg, setShowBigImg, setShowLightBox }) => {
    const images = [Img1, Img2, Img3, Img4];
    return (
       <Box position="relative">

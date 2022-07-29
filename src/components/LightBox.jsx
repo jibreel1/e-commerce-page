@@ -13,7 +13,7 @@ const LightBox = ({ showBigImg, setShowBigImg, close, images }) => {
          position="absolute"
          top="0"
          left="0"
-         bottom="0"
+         bottom="-70px"
          right="0"
          zIndex="8"
          sx={{
@@ -27,7 +27,7 @@ const LightBox = ({ showBigImg, setShowBigImg, close, images }) => {
             placeItems="center"
             alignItems="center"
             justifyContent="center"
-            mt="150px"
+            mt="80px"
          >
             <Box className="closeBox" onClick={close}>
                <img src={CloseWhite} alt="close" className="img-closeBox" />

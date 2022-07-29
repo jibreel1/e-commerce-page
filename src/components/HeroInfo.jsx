@@ -1,8 +1,6 @@
 import React from "react";
 import { Stack, Typography, Box } from "@mui/material";
 
-// import AddCart from "./AddCart";
-
 import Minus from "../assets/icon-minus.svg";
 import Plus from "../assets/icon-plus.svg";
 import CartWhite from "../assets/icon-cart-white.svg";
@@ -11,7 +9,7 @@ const HeroInfo = ({ count, setCount, cartItems, setCartItems }) => {
    const handleAddCart = () => {
       if (count > 0) {
          setCartItems([cartItems]);
-         console.log(cartItems);
+         // console.log(cartItems);
       }
    };
 
@@ -155,7 +153,7 @@ const HeroInfo = ({ count, setCount, cartItems, setCartItems }) => {
                gap="20px"
                boxShadow="0 30px 30px hsl(25, 100%, 94%)"
                sx={{ cursor: "pointer" }}
-               onClick={handleAddCart}
+               onClick={() => handleAddCart()}
             >
                <img src={CartWhite} alt="cart" />
                <Typography

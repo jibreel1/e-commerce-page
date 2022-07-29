@@ -34,6 +34,22 @@ a {
    transform: scale(0);
 }
 
+ul p:first-child .nav-links::before {
+   width: 80px;
+}
+
+ul p:nth-child(2) .nav-links::before {
+   width: 40px;
+}
+
+ul p:nth-child(3) .nav-links::before {
+   width: 62px;
+}
+
+ul p:nth-child(5) .nav-links::before {
+   width: 72px;
+}
+
 .nav-links:hover {
    color: #000;
 }
@@ -53,7 +69,6 @@ a {
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   box-shadow: 3px 0 6px rgba(0, 0, 0, 0.5);
    transition: all 0.5s ease-in-out;
 }
 
@@ -147,12 +162,16 @@ a {
 
 .prevBox {
    top: 38%;
-   left: 25%;
+   left: 24%;
+   width: 60px;
+   height: 60px;
 }
 
 .nextBox {
    top: 38%;
-   right: 21%;
+   right: 18%;
+   width: 60px;
+   height: 60px;
 }
 
 .little-img {
@@ -197,6 +216,10 @@ a {
    border-radius: 10px;
    display: flex;
    align-items: center;
+}
+
+.noscroll {
+   overflow: hidden;
 }
 
 @media screen and (min-width: 450px) {

@@ -9,7 +9,7 @@ import Menu from "../assets/icon-menu.svg";
 import Cart from "../assets/icon-cart.svg";
 import Avatar from "../assets/image-avatar.png";
 
-const Navbar = ({ count, cartItems, setCartItems }) => {
+const Navbar = ({ count, setCount, cartItems, setCartItems }) => {
    const [showSidebar, setShowSidebar] = useState(false);
    const [showCart, setShowCart] = useState(false);
 
@@ -47,6 +47,7 @@ const Navbar = ({ count, cartItems, setCartItems }) => {
             />
             <img className="logo" src={Logo} alt="logo" />
             <Box
+               component="ul"
                sx={{
                   display: { xs: "none", sm: "inline-flex" },
                   alignItems: "center",
@@ -65,26 +66,29 @@ const Navbar = ({ count, cartItems, setCartItems }) => {
          <Box
             sx={{ position: "relative", display: "flex", alignItems: "center" }}
          >
-            <Box
-               position="absolute"
-               color="#fff"
-               bgcolor="hsl(26, 100%, 55%)"
-               borderRadius="10px"
-               p="0 4px"
-               top="0"
-               right="35px"
-               sx={{ display: count === 0 ? "none" : "" }}
-            >
-               <Typography fontSize="12px">{count}</Typography>
-            </Box>
-            <img
-               src={Cart}
-               alt="cart"
-               style={{ marginRight: "15px", cursor: "pointer" }}
+            <div
                onClick={() => {
                   setShowCart(!showCart);
                }}
-            />
+            >
+               <Box
+                  position="absolute"
+                  color="#fff"
+                  bgcolor="hsl(26, 100%, 55%)"
+                  borderRadius="10px"
+                  p="0 4px"
+                  top="0"
+                  right="35px"
+                  sx={{ display: count === 0 ? "none" : "" }}
+               >
+                  <Typography fontSize="12px">{count}</Typography>
+               </Box>
+               <img
+                  src={Cart}
+                  alt="cart"
+                  style={{ marginRight: "15px", cursor: "pointer" }}
+               />
+            </div>
             <Box
                className={`avatar ${showCart === true ? "border" : ""}`}
                sx={{ display: "flex", alignItems: "center" }}
@@ -99,6 +103,7 @@ const Navbar = ({ count, cartItems, setCartItems }) => {
          {showCart && (
             <CartCard
                count={count}
+               setCount={setCount}
                cartItems={cartItems}
                setCartItems={setCartItems}
             />
