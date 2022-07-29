@@ -4,10 +4,6 @@
    box-sizing: border-box;
 }
 
-/* img {
-   cursor: pointer;
-} */
-
 li {
    list-style: none;
 }
@@ -25,7 +21,6 @@ a {
 .nav-links::before {
    content: "";
    position: absolute;
-   width: 45px;
    height: 3px;
    top: 41px;
    left: 0px;
@@ -44,6 +39,10 @@ ul p:nth-child(2) .nav-links::before {
 
 ul p:nth-child(3) .nav-links::before {
    width: 62px;
+}
+
+ul p:nth-child(4) .nav-links::before {
+   width: 45px;
 }
 
 ul p:nth-child(5) .nav-links::before {
@@ -184,11 +183,33 @@ ul p:nth-child(5) .nav-links::before {
 }
 
 .little-img:hover {
-   opacity: 0.7;
+   opacity: 0.6;
 }
 
-.active {
-   opacity: 0.5;
+.active-img {
+   position: relative;
+   border: 3px solid hsl(26, 100%, 55%);
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+}
+
+.active-img::before {
+   content: "";
+   position: absolute;
+   z-index: 1;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: rgba(255, 255, 255, 0.45);
+   opacity: 1;
+   transition: opacity 150ms ease-in-out;
+}
+
+.active-img::before:hover {
+   opacity: 1;
 }
 
 .math {
@@ -209,13 +230,6 @@ ul p:nth-child(5) .nav-links::before {
    width: 50px;
    height: 50px;
    border-radius: 8px;
-}
-
-.active-img {
-   border: 3px solid hsl(26, 100%, 55%);
-   border-radius: 10px;
-   display: flex;
-   align-items: center;
 }
 
 .noscroll {
