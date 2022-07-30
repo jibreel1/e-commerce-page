@@ -55,7 +55,7 @@ const Navbar = ({ count, setCount, cartItems, setCartItems }) => {
                }}
             >
                {links.map((link, index) => (
-                  <Typography key={index}>
+                  <Typography component="li" key={index}>
                      <a href="!#" className="nav-links">
                         {link}
                      </a>
@@ -79,7 +79,10 @@ const Navbar = ({ count, setCount, cartItems, setCartItems }) => {
                   p="0 4px"
                   top="0"
                   right="35px"
-                  sx={{ display: count === 0 ? "none" : "" }}
+                  sx={{
+                     display:
+                        cartItems.length > 0 && count > 0 ? "block" : "none",
+                  }}
                >
                   <Typography fontSize="12px">{count}</Typography>
                </Box>

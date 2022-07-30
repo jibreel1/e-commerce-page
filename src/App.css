@@ -29,23 +29,23 @@ a {
    transform: scale(0);
 }
 
-ul p:first-child .nav-links::before {
+ul li:first-child .nav-links::before {
    width: 80px;
 }
 
-ul p:nth-child(2) .nav-links::before {
+ul li:nth-child(2) .nav-links::before {
    width: 40px;
 }
 
-ul p:nth-child(3) .nav-links::before {
+ul li:nth-child(3) .nav-links::before {
    width: 62px;
 }
 
-ul p:nth-child(4) .nav-links::before {
+ul li:nth-child(4) .nav-links::before {
    width: 45px;
 }
 
-ul p:nth-child(5) .nav-links::before {
+ul li:nth-child(5) .nav-links::before {
    width: 72px;
 }
 
