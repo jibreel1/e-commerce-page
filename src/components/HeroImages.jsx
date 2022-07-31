@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Box } from "@mui/material";
 
 import Img1 from "../assets/image-product-1.jpg";
@@ -9,8 +9,30 @@ import Img4 from "../assets/image-product-4.jpg";
 import Prev from "../assets/icon-previous.svg";
 import Next from "../assets/icon-next.svg";
 
+const images = [Img1, Img2, Img3, Img4];
+const delay = 2500;
 const HeroImages = ({ showBigImg, setShowBigImg, setShowLightBox }) => {
-   const images = [Img1, Img2, Img3, Img4];
+   const timeoutRef = useRef(null);
+
+   const resetTimeout = () => {
+      if (timeoutRef.current) {
+         clearTimeout(timeoutRef.current);
+      }
+   };
+
+   useEffect(() => {
+      resetTimeout();
+      timeoutRef.current = setTimeout(
+         () =>
+            setShowBigImg(prev => (prev === images.length - 1 ? 0 : prev + 1)),
+         delay
+      );
+
+      return () => {
+         resetTimeout();
+      };
+   }, [showBigImg, setShowBigImg]);
+
    return (
       <Box position="relative">
          <Box
@@ -37,7 +59,12 @@ const HeroImages = ({ showBigImg, setShowBigImg, setShowLightBox }) => {
          >
             <img src={Next} alt="next" />
          </Box>
-         <Box sx={{ display: { xs: "none", sm: "flex" }, gap: "30px" }}>
+         <Box
+            sx={{
+               display: { xs: "none", sm: "flex" },
+               gap: "30px",
+            }}
+         >
             {images.map((image, index) => (
                <div
                   key={index}
