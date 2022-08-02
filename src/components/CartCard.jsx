@@ -4,11 +4,11 @@ import { Box, Typography } from "@mui/material";
 import AddCart from "./AddCart";
 
 const CartCard = ({ count, setCount, cartItems, setCartItems }) => {
-   const onRemove = () => {
-      const arr = cartItems.shift();
-      setCartItems(arr);
+   const onRemove = index => {
+      setCartItems(item => item.filter(i => i !== index));
       setCount(0);
    };
+
    return (
       <Box
          className="cart"
@@ -38,7 +38,12 @@ const CartCard = ({ count, setCount, cartItems, setCartItems }) => {
                </Typography>
             )}
             {cartItems.map(index => (
-               <AddCart key={index} count={count} onRemove={onRemove} />
+               <AddCart
+                  key={index}
+                  count={count}
+                  onRemove={onRemove}
+                  index={index}
+               />
             ))}
             {cartItems.length > 0 && count > 0 && (
                <Box

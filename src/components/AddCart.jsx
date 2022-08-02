@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import Thumbnail from "../assets/image-product-1-thumbnail.jpg";
 import Delete from "../assets/icon-delete.svg";
 
-const AddCart = ({ count, onRemove }) => {
+const AddCart = ({ count, onRemove, index }) => {
    return (
       <Box
          p="25px"
@@ -43,7 +43,7 @@ const AddCart = ({ count, onRemove }) => {
             alt="delete"
             style={{ cursor: "pointer" }}
             onClick={() => {
-               onRemove();
+               onRemove(index);
             }}
          />
       </Box>
